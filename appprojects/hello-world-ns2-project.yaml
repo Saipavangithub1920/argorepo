@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: hello-world-ns2
+  namespace: argocd
+spec:
+  description: "Project for hello-world app in ns2"
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: app-ns2
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
